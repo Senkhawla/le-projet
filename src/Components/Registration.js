@@ -8,6 +8,8 @@ function Registration() {
   const [job, setJob] = useState('');
   const [grade, setGrade] = useState('');
   const [situation, setSituation] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [responsabilite, setResponsabilite] = useState({
     admin: false,
     responsable: false,
@@ -23,6 +25,15 @@ function Registration() {
   const handleResponsabiliteChange = (e) => {
     const { name, checked } = e.target;
     setResponsabilite(prevState => ({ ...prevState, [name]: checked }));
+  }
+
+  const handleeSubmit = (event) => {
+    event.preventDefault();
+    if (password === confirmPassword) {
+      // Passwords match, do something
+    } else {
+      // Passwords don't match, show an error message
+    }
   }
 
   return (
@@ -53,6 +64,19 @@ function Registration() {
           <div className="form-group col">
             <label htmlFor="email">Email:</label>
             <input type="email" className='input' id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+          </div>
+        </div>
+
+                <div className="form-group-row">
+
+          <div className="form-group col">
+            <label htmlFor="password">Password:</label>
+            <input type="password" className='input' id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+          </div>
+
+          <div className="form-group col">
+            <label htmlFor="confirmPassword">Confirm password:</label>
+            <input type="password" className='input' id="confirmPassword" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
           </div>
         </div>
 
@@ -112,7 +136,7 @@ function Registration() {
         </div>
         </div>  
         
-        <button type="submit"className='button-annuler'>Annuler</button>
+        <button type="submit" className='button-annuler'>Annuler</button>
         <button type="submit"className='button-ajouter'>Ajouter</button>
 
 

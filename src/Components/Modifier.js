@@ -8,6 +8,8 @@ function Modifier() {
   const [job, setJob] = useState('');
   const [grade, setGrade] = useState('');
   const [situation, setSituation] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [responsabilite, setResponsabilite] = useState({
     admin: false,
     responsable: false,
@@ -56,6 +58,20 @@ function Modifier() {
           <div className="form-group col">
             <label htmlFor="email">Email:</label>
             <input type="email" className='input' id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+          </div>
+        </div>
+
+        
+                <div className="form-group-row">
+
+          <div className="form-group col">
+            <label htmlFor="password">Password:</label>
+            <input type="password" className='input' id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+          </div>
+
+          <div className="form-group col">
+            <label htmlFor="confirmPassword">Confirm password:</label>
+            <input type="password" className='input' id="confirmPassword" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
           </div>
         </div>
 
